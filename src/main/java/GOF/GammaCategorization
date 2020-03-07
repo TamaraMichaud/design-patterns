@@ -1,0 +1,16 @@
+3 main categories
+
+Creational Pattern
+- explicit - constructor
+- implicit - dependency injection framework (dif), reflection
+- wholesale - a single statement can satisfy the creation of the object
+- piecewise - step-by-step - i.e. connector classes often require initialisation of managers etc (?)
+
+Structural Pattern
+- concerned with the structure, class members - class adhering to interfaces
+- wrapper around the class which mimics underlying class
+- stress the importance of good api design
+
+Behavioural Pattern
+- no central theme, all tackle different situations in different ways
+
