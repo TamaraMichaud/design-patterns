@@ -12,7 +12,15 @@
         <maven-version>3.8.1</maven-version>
         <java-version>11</java-version>
     </properties>
+<dependencies>
+    <!-- https://mvnrepository.com/artifact/org.javatuples/javatuples -->
+    <dependency>
+        <groupId>org.javatuples</groupId>
+        <artifactId>javatuples</artifactId>
+        <version>1.2</version>
+    </dependency>
 
+</dependencies>
     <build>
         <plugins>
             <plugin>
