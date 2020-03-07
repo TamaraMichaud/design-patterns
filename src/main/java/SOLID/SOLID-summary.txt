@@ -1,0 +1,22 @@
+S ----------------------------------------
+    SINGLE RESPONSIBILITY
+    a class should only have one reason to change
+    separation of concerns - can be refactored or replaced independently of any other classes
+
+O ----------------------------------------
+    OPEN CLOSE PRINCIPLE
+    open for extension, closed for modification [specification pattern]
+
+L ----------------------------------------
+    LISKOV SUBSTITUTION PRINCIPLE
+    you should be able to substitute a base type for a sub type
+
+I ----------------------------------------
+    INTERFACE SEGREGATION
+    yagni - only include what is definitely required in an interface, dont get over-eager
+
+D ----------------------------------------
+    DEPENDENCY INVERSION
+    code to an interface or abstract class rather than the implementation
+    low-level modules = data class; list/array/collection, which may change, but no business logic. should have methods to apply logic to itself though
+    high-level modules = performing calculations; on pojo classes - dependent on the low-level INTERFACE expected to provide back the pojo not it's implementation of the storage of that pojo... (?)
