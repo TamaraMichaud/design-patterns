@@ -1,6 +1,16 @@
 package Creational;
 
 // Fluent Builder Inheritance with Recursive Generics
+
+// for a fluent interface to propagate across inheritance heirarchies,
+// then you need to implement recursive generics, this idea of always
+// returning the type reference for the lowest derived type that you are working with.
+// instead of just personbuilder, you make personbuilder taht takes a type argument of itself and is an extension of itself
+// and then make any inheritor extend personbuilder as the type argument
+
+
+
+
 public class FluentBuilder {
 
     public static void main(String[] args) {
