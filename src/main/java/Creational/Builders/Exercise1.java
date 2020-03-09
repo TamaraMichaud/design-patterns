@@ -21,6 +21,7 @@ public class Exercise1 {
 @SuppressWarnings("WeakerAccess")
 class CodeBuilder {
     private SomeCode theCode;
+    private final String indent = "  ";
 
     public CodeBuilder(String className) {
         this.theCode = new SomeCode(className);
@@ -35,8 +36,8 @@ class CodeBuilder {
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("public class %s\n{\n", this.theCode.getClassName()));
-        for (String field : this.theCode.getFieldsList()) {
-            sb.append(field);
+        for (SomeField field : this.theCode.getFieldsList()) {
+            sb.append(indent + field);
         }
         sb.append("}");
         return sb.toString();
@@ -46,7 +47,7 @@ class CodeBuilder {
 class SomeCode {
 
     private String className;
-    private List<String> fieldsList;
+    private List<SomeField> fieldsList;
 
     SomeCode(String className) {
         this.className = className;
@@ -54,15 +55,30 @@ class SomeCode {
     }
 
     void setField(String name, String type) {
-        this.fieldsList.add(String.format("  public %s %s;\n", type, name));
+        this.fieldsList.add(new SomeField().setField(name, type));
     }
 
     String getClassName() {
         return this.className;
     }
 
-    List<String> getFieldsList() {
+    List<SomeField> getFieldsList() {
         return this.fieldsList;
+    }
+}
+
+class SomeField {
+    private String name, type;
+
+    public SomeField setField(String name, String type){
+        this.name = name;
+        this.type = type;
+        return this;
+    }
+
+    @Override
+    public String toString() {
+        return String.format("public %s %s;\n", type, name);
     }
 }
 
