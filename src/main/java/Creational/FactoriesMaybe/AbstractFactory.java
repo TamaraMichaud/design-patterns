@@ -1,4 +1,4 @@
-// not very common... skip! confusing enough :z
+package Creational.FactoriesMaybe;// not very common... skip! confusing enough :z
 
 public class AbstractFactory {
 }

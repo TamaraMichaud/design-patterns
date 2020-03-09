@@ -1,3 +1,5 @@
+package Creational.FactoriesMaybe;
+
 public class Exercise {
     public static void main(String[] args) {
         System.out.println("personfactory should increment the person id each time it creates one");
@@ -8,7 +10,7 @@ public class Exercise {
 
     }
 }
-
+@SuppressWarnings({"WeakerAccess"})
 class Person
 {
     public int id;
@@ -20,7 +22,7 @@ class Person
         this.name = name;
     }
 }
-
+@SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
 class PersonFactory
 {
     private int counter;

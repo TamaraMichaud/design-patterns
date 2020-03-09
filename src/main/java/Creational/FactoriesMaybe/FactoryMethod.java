@@ -1,4 +1,4 @@
-// not actually mentioned in g.o.f. as such
+package Creational.FactoriesMaybe;// not actually mentioned in g.o.f. as such
 
 // wholesale object creation. sometimes constructors are too limited, so rather than overloading them 100 times,
 // create a factory.  which could be
@@ -34,7 +34,7 @@ class Point {
     // ok for points, what about polar co-ordinates ?
 
     // this is illegal, same signature as the first constructor... so what do we do
-//    public Point(double rho, double theta) {
+//    public Creational.FactoriesMaybe.Point(double rho, double theta) {
 //        this.x = rho;
 //        this.y = theta;
 //    }
@@ -64,8 +64,8 @@ class Point {
     // so we create some STATIC classes that can be our "Factories".
     // Note that we now only use the most basic constructor and no longer require the pointless enum
 
-    // we wrap these methods in a public static class so taht we don't need to do Point.newCart... which is somewhat confusing.
-    // if we put this class in it's own file we would not be able to access the Point constructor.
+    // we wrap these methods in a public static class so taht we don't need to do Creational.FactoriesMaybe.Point.newCart... which is somewhat confusing.
+    // if we put this class in it's own file we would not be able to access the Creational.FactoriesMaybe.Point constructor.
     // (unless we made it public again, meaning it could be instantiated by either Factory or directly... even more confusing!)
 
     // HOWEVER - this would only be if you have access to the source code.  likely you'll be creating a factory
