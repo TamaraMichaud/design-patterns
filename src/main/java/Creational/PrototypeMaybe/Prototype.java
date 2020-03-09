@@ -12,6 +12,8 @@ package Creational.PrototypeMaybe;
 
 // so. Copy Constructors.
 
+// see end for summary notes
+
 public class Prototype {
     public static void main(String[] args) {
         Employee john = new Employee("John", new Address("123 some street", "johnstown", "usa"));
@@ -71,3 +73,12 @@ class Employee {
                 '}';
     }
 }
+
+
+// how to handle prototypes:
+// - to implement a prototype, create or part-create your initial object and store it somewhere
+// - to then clone that prototype;
+    // implement your own deep copy functionality; you can either copy all involved constructors if possible or (ugly) implement cloneable perhaps
+    // or serialize and deserialize ** DO IT THIS WAY ** using any of many libraries
+// - then you can customize your clone as you wish
+
