@@ -18,7 +18,7 @@ public class Exercise1 {
     }
 }
 
-@SuppressWarnings("WeakerAccess")
+@SuppressWarnings({"WeakerAccess", "FieldCanBeLocal"})
 class CodeBuilder {
     private SomeCode theCode;
     private final String indent = "  ";
@@ -37,7 +37,8 @@ class CodeBuilder {
         StringBuilder sb = new StringBuilder();
         sb.append(String.format("public class %s\n{\n", this.theCode.getClassName()));
         for (SomeField field : this.theCode.getFieldsList()) {
-            sb.append(indent + field);
+            sb.append(indent);
+            sb.append(field);
         }
         sb.append("}");
         return sb.toString();
@@ -70,7 +71,7 @@ class SomeCode {
 class SomeField {
     private String name, type;
 
-    public SomeField setField(String name, String type){
+    SomeField setField(String name, String type){
         this.name = name;
         this.type = type;
         return this;
