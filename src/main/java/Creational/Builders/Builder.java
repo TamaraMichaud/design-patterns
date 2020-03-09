@@ -1,4 +1,4 @@
-package Creational;
+package Creational.Builders;
 
 // simple objects can be created with a single constructor call. e.g. "Point(x,y)"
 // other objects require a lot of ceremony. e.g. constructing a string from a dozen different places, you want a stringBuilder
@@ -20,6 +20,7 @@ public class Builder {
 
 }
 
+@SuppressWarnings("WeakerAccess")
 class Builder101 {
 
     public void helloWorld() {
@@ -65,6 +66,7 @@ class BuilderSmart {
     }
 }
 
+@SuppressWarnings({"WeakerAccess", "FieldCanBeLocal"})
 class HtmlElement {
     public String name, text; // e.g. li, provided-text
     public ArrayList<HtmlElement> elements = new ArrayList<>();
@@ -104,6 +106,7 @@ class HtmlElement {
     }
 }
 
+@SuppressWarnings({"WeakerAccess", "unused"})
 class HtmlBuilder {
     // holds the root html element, which contains everything.
     // any time anyone interacts with this object they are manipulating this element
@@ -133,7 +136,7 @@ class HtmlBuilder {
 
 }
 
-
+@SuppressWarnings("WeakerAccess, unused")
 class HtmlFluentBuilder {
     // holds the root html element, which contains everything.
     // any time anyone interacts with this object they are manipulating this element

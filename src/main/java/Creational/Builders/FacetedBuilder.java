@@ -1,4 +1,4 @@
-package Creational;
+package Creational.Builders;
 
 // multiple builders working in tandem
 
@@ -18,6 +18,7 @@ public class FacetedBuilder {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class Human {
     // addresss
     public String streetAddress, postCode, city;
@@ -39,6 +40,7 @@ class Human {
 }
 
 // builder facade
+@SuppressWarnings("WeakerAccess")
 class HumanBuilder {
     protected Human human = new Human();
 
@@ -55,6 +57,7 @@ class HumanBuilder {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class AddressBuilder extends HumanBuilder {
     public AddressBuilder(Human human) {
         this.human = human; // why don't we need this as a class variable to access it...?
@@ -73,6 +76,7 @@ class AddressBuilder extends HumanBuilder {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class JobBuilder extends HumanBuilder {
 
     public JobBuilder(Human human) {

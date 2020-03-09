@@ -1,4 +1,4 @@
-package Creational;
+package Creational.Builders;
 
 import org.junit.Test;
 
@@ -18,6 +18,7 @@ public class Exercise1 {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class CodeBuilder {
     private SomeCode theCode;
 
@@ -47,25 +48,26 @@ class SomeCode {
     private String className;
     private List<String> fieldsList;
 
-    public SomeCode(String className) {
+    SomeCode(String className) {
         this.className = className;
         this.fieldsList = new ArrayList<>();
     }
 
-    public void setField(String name, String type) {
+    void setField(String name, String type) {
         this.fieldsList.add(String.format("  public %s %s;\n", type, name));
     }
 
-    public String getClassName() {
+    String getClassName() {
         return this.className;
     }
 
-    public List<String> getFieldsList() {
+    List<String> getFieldsList() {
         return this.fieldsList;
     }
 }
 
 
+@SuppressWarnings("WeakerAccess")
 class CodeBuilderTest {
 
     private String preprocess(String text) {

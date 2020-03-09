@@ -1,4 +1,4 @@
-package Creational;
+package Creational.Builders;
 
 // Fluent Builder Inheritance with Recursive Generics
 
@@ -10,7 +10,7 @@ package Creational;
 
 
 
-
+@SuppressWarnings("unused")
 public class FluentBuilder {
 
     public static void main(String[] args) {
@@ -28,6 +28,7 @@ public class FluentBuilder {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class Person {
     public String name;
     public String occupation;
@@ -41,6 +42,7 @@ class Person {
     }
 }
 
+@SuppressWarnings("unused")
 class EmployeeBuilder extends PersonBuilder {
     public EmployeeBuilder worksAt(String position) {
         person.occupation = position;
@@ -48,6 +50,7 @@ class EmployeeBuilder extends PersonBuilder {
     }
 }
 
+@SuppressWarnings("WeakerAccess")
 class PersonBuilder {
     protected Person person = new Person();
 
@@ -62,6 +65,7 @@ class PersonBuilder {
 }
 
 
+@SuppressWarnings({"WeakerAccess", "unchecked"})
 class PersonBuilderRecursiveGenerics<TAM extends PersonBuilderRecursiveGenerics<TAM>> {
     protected Person person = new Person();
 
@@ -81,6 +85,7 @@ class PersonBuilderRecursiveGenerics<TAM extends PersonBuilderRecursiveGenerics<
 }
 
 
+@SuppressWarnings("WeakerAccess")
 class EmployeeBuilderRG extends PersonBuilderRecursiveGenerics<EmployeeBuilderRG> {
     public EmployeeBuilderRG worksAt(String position) {
         person.occupation = position;
