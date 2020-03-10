@@ -2,7 +2,7 @@ package Creational.Builders;
 
 // multiple builders working in tandem
 
-public class FacetedBuilder {
+public class cFacetedBuilder {
 
     public static void main(String[] args) {
         Human someDude = new HumanBuilder()

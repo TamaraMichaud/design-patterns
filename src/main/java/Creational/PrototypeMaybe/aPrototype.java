@@ -14,7 +14,7 @@ package Creational.PrototypeMaybe;
 
 // see end for summary notes
 
-public class Prototype {
+public class aPrototype {
     public static void main(String[] args) {
         Employee john = new Employee("John", new Address("123 some street", "johnstown", "usa"));
         Employee jane = new Employee(john);

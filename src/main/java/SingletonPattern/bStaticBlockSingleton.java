@@ -6,7 +6,7 @@ package SingletonPattern;
 import java.io.File;
 import java.io.IOException;
 
-public class StaticBlockSingleton {
+public class bStaticBlockSingleton {
 
     public static void main(String[] args) {
         StaticBlockSi instance = StaticBlockSi.getInstance();
@@ -17,7 +17,7 @@ public class StaticBlockSingleton {
 class StaticBlockSi {
     private StaticBlockSi() throws IOException {
         System.out.println("Singleton is initializing!");
-        File.createTempFile(".", "."); // << invalid! exception thrown...
+        File.createTempFile(".", "."); // << invalid! exception WILL be thrown...
     }
 
     private static StaticBlockSi instance;

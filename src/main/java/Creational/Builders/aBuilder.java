@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 // e.g. making an application for serving web pages.  SUPER BASIC... has worth?
-public class Builder {
+public class aBuilder {
     public static void main(String[] args) {
         new Builder101().helloWorld();
         new Builder101().helloEndlessText();

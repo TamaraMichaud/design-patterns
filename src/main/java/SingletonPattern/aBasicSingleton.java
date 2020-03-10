@@ -16,7 +16,7 @@ package SingletonPattern;
 
 import java.io.*;
 
-public class BasicSingleton {
+public class aBasicSingleton {
     public static void main(String[] args) throws Exception {
 
         BasicSingletonEx singleton1 = BasicSingletonEx.getInstance();

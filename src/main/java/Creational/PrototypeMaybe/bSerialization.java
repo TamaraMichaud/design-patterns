@@ -8,7 +8,7 @@ import org.apache.commons.lang3.SerializationUtils;
 
 import java.io.Serializable;
 
-public class Serialization {
+public class bSerialization {
 
     public static void main(String[] args) {
         Foo foo1 = new Foo(5, "adsfsd");

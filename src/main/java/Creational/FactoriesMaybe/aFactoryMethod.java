@@ -8,7 +8,7 @@ package Creational.FactoriesMaybe;// not actually mentioned in g.o.f. as such
     // and even have a heirarchy of factories (Abstract Factory)
 
 // A Factory is a component responsible solely for the wholesale (not piecewise) creation of objects
-public class FactoryMethod {
+public class aFactoryMethod {
 
     public static void main(String[] args) {
 

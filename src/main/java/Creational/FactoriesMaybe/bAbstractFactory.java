@@ -1,6 +1,6 @@
 package Creational.FactoriesMaybe;// not very common... skip! confusing enough :z
 
-public class AbstractFactory {
+public class bAbstractFactory {
 }
 
 
