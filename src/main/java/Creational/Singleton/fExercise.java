@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.Singleton;
 
 import java.util.function.Supplier;
 

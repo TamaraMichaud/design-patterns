@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.Singleton;
 
 // stop an object from being created more than once in a project.
 // simple enough to do, but some basic issues to consider:

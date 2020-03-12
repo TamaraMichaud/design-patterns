@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.Singleton;
 
 // what if you have exceptions inside the singleton constructor?
 // you can overcome this by using a static block
@@ -35,7 +35,7 @@ class StaticBlockSi {
         }
     }
 
-    public static StaticBlockSi getInstance(){
+    static StaticBlockSi getInstance(){
         return instance;
     }
 

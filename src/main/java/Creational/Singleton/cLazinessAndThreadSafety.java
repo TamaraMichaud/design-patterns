@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.Singleton;
 
 // where previously we used the private static final with getInstance()
 // to get our singleton instance, to create the instance right away,

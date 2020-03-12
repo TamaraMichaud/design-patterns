@@ -1,4 +1,4 @@
-package SingletonPattern;
+package Creational.Singleton;
 
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
@@ -124,7 +124,7 @@ class LiveDatabase implements InterfaceDB {
         instanceCount++;
         System.out.println("Initializing LIVE db");
         try {
-            String wtf = "../../src/main/java/SingletonPattern/";
+            String wtf = "../../src/main/java/Creational.SingletonPattern/";
             File fp = new File(LiveDatabase.class.getProtectionDomain().getCodeSource().getLocation().getPath() + wtf);
             // ^^ wtf is this; how does a path become a file...?
             Path theFileButCalledPathWtf = Paths.get(fp.getPath() + "/e_capitals.txt");
