@@ -127,7 +127,7 @@ class LiveDatabase implements InterfaceDB {
             String wtf = "../../src/main/java/SingletonPattern/";
             File fp = new File(LiveDatabase.class.getProtectionDomain().getCodeSource().getLocation().getPath() + wtf);
             // ^^ wtf is this; how does a path become a file...?
-            Path theFileButCalledPathWtf = Paths.get(fp.getPath() + "/capitals.txt");
+            Path theFileButCalledPathWtf = Paths.get(fp.getPath() + "/e_capitals.txt");
             List<String> lines = Files.readAllLines(theFileButCalledPathWtf);
             for(int i = 0; i < lines.size(); i++) {
                 capitals.put(lines.get(i), Integer.parseInt(lines.get(++i)));
