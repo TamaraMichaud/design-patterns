@@ -1,4 +1,4 @@
-package Creational.PrototypeMaybe;
+package Creational.Prototype;
 
 // when it's easier to copy an existing object than to fully initialize a new one
 

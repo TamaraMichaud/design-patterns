@@ -1,4 +1,4 @@
-package Creational.PrototypeMaybe;
+package Creational.Prototype;
 
 // what if you can't make copies of all of the constructors, it's a complex heirarchy and/or you dont have access
 // we can just use the Apache Commons lib to directly take a copy of our Serializable class

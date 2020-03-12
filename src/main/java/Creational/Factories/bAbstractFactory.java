@@ -1,4 +1,4 @@
-package Creational.FactoriesMaybe;// not very common... skip! confusing enough :z
+package Creational.Factories;// not very common... skip! confusing enough :z
 
 public class bAbstractFactory {
 }

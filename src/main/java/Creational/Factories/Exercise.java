@@ -1,4 +1,4 @@
-package Creational.FactoriesMaybe;
+package Creational.Factories;
 
 public class Exercise {
     public static void main(String[] args) {

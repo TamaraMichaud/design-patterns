@@ -1,4 +1,4 @@
-package Creational.FactoriesMaybe;// not actually mentioned in g.o.f. as such
+package Creational.Factories;// not actually mentioned in g.o.f. as such
 
 // wholesale object creation. sometimes constructors are too limited, so rather than overloading them 100 times,
 // create a factory.  which could be

@@ -1,4 +1,4 @@
-package Creational.PrototypeMaybe;
+package Creational.Prototype;
 
 // implement Line.deepcopy()
 
