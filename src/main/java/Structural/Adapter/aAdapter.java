@@ -13,5 +13,10 @@ public class aAdapter {
     // in this case we implemented the hashCode() method on our pojos and used a hashmap to
     // store & check for previously-created temporary objects
 
+    // summary:
+    // determine the api that you have/must use - and the api you need
+    // create a component which aggregates the adaptee (i.e. caching to avoid replication)
+    // otherwise intermediate representations can pile up
+
 
 }
