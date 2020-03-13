@@ -1,6 +1,7 @@
 package Structural.Adapter;
 
 import java.util.*;
+import java.util.function.Consumer;
 
 public class Vector_Rasta_WithCaching {
 
@@ -37,7 +38,7 @@ public class Vector_Rasta_WithCaching {
 }
 
 // this class should take a Line and convert it into a list of Points
-class LineToPointAdapter2 extends ArrayList<Point2> {
+class LineToPointAdapter2 implements Iterable<Point2> {
 
     private static int counter = 0;
     private static Map<Integer, List<Point2>> cache = new HashMap<>(); // << this is to hold the new hashCode() values per point
@@ -76,6 +77,21 @@ class LineToPointAdapter2 extends ArrayList<Point2> {
         }
 
         cache.put(hash, tmpList);
+    }
+
+    @Override
+    public Iterator<Point2> iterator() {
+        return cache.get(hash).iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Point2> action) {
+        cache.get(hash).forEach(action);
+    }
+
+    @Override
+    public Spliterator<Point2> spliterator() {
+        return cache.get(hash).spliterator();
     }
 }
 
