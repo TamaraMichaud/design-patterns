@@ -8,4 +8,10 @@ public class aAdapter {
 
     // a construct which adapts an existing interface X to conform to the required interface Y
 
+    // sometimes when using this method your adapter class will build temporary objects,
+    // so to save this duplication of memory, we can introduce caching.
+    // in this case we implemented the hashCode() method on our pojos and used a hashmap to
+    // store & check for previously-created temporary objects
+
+
 }
