@@ -1,10 +1,9 @@
 package Structural.Adapter;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
+import java.util.function.Consumer;
 
-public class Vector_Rasta {
+public class cVector_Rasta_WithCaching {
 
     public static void main(String[] args) {
         draw(); // we create 8 lines here (2 rectangles)
@@ -31,7 +30,7 @@ public class Vector_Rasta {
             for (Line2 line : vo) {
                 System.out.println("  Object Line: " + line);
                 LineToPointAdapter2 points = new LineToPointAdapter2(line);
-                points.forEach(Vector_Rasta::drawPoint);
+                points.forEach(cVector_Rasta_WithCaching::drawPoint);
             }
         }
 
@@ -39,16 +38,20 @@ public class Vector_Rasta {
 }
 
 // this class should take a Line and convert it into a list of Points
-class LineToPointAdapter extends ArrayList<Point2> {
+class LineToPointAdapter2 implements Iterable<Point2> {
 
     private static int counter = 0;
+    private static Map<Integer, List<Point2>> cache = new HashMap<>(); // << this is to hold the new hashCode() values per point
+    private int hash;
 
     // hold onto your hats kids!!
-    public LineToPointAdapter(Line2 line) {
+    public LineToPointAdapter2(Line2 line) {
+
+        hash = line.hashCode();
+        if (cache.get(hash) != null) return; // we already have this one in the list!
 
         System.out.println(++counter + ") Deconstructing line: " + line);
-        System.out.println("(no caching)"); // << relevant apparently...
-        // to be explained later hopefully...
+        System.out.println("(with caching)"); // << let's do it!
 
         int left = Math.min(line.start.x, line.end.x);
         int right = Math.max(line.start.x, line.end.x);
@@ -59,24 +62,45 @@ class LineToPointAdapter extends ArrayList<Point2> {
         int dx = right - left;
         int dy = top - bottom;
 
+        ArrayList<Point2> tmpList = new ArrayList<>();
+
         if (dx == 0) { // vertical line
             for (int y = bottom; y <= top; y++) {
-                this.add(new Point2(left, y));
+                Point2 newPoint = new Point2(left, y);
+                tmpList.add(newPoint);
             }
         } else if (dy == 0) {
             for (int x = left; x <= right; x++) {
-                this.add(new Point2(x, bottom));
+                Point2 newPoint = new Point2(x, bottom);
+                tmpList.add(newPoint);
             }
         }
+
+        cache.put(hash, tmpList);
+    }
+
+    @Override
+    public Iterator<Point2> iterator() {
+        return cache.get(hash).iterator();
+    }
+
+    @Override
+    public void forEach(Consumer<? super Point2> action) {
+        cache.get(hash).forEach(action);
+    }
+
+    @Override
+    public Spliterator<Point2> spliterator() {
+        return cache.get(hash).spliterator();
     }
 }
 
 
-class VectorObject extends ArrayList<Line2> {
+class VectorObject2 extends ArrayList<Line2> {
 }
 
-class VectorRectangle extends VectorObject2 {
-    public VectorRectangle(int x, int y, int width, int height) {
+class VectorRectangle2 extends VectorObject2 {
+    public VectorRectangle2(int x, int y, int width, int height) {
         this.add(new Line2(new Point2(x, y), new Point2(x + width, y)));
         this.add(new Line2(new Point2(x + width, y), new Point2(x + width, y + height)));
         this.add(new Line2(new Point2(x + width, y + height), new Point2(x, y + height)));
@@ -87,12 +111,26 @@ class VectorRectangle extends VectorObject2 {
 }
 
 
-class Point {
+class Point2 {
     public int x, y;
 
-    public Point(int x, int y) {
+    public Point2(int x, int y) {
         this.x = x;
         this.y = y;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Point2 point2 = (Point2) o;
+        return x == point2.x &&
+                y == point2.y;
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(x, y);
     }
 
     @Override
@@ -104,12 +142,30 @@ class Point {
     }
 }
 
-class Line {
+class Line2 {
     public Point2 start, end;
 
-    public Line(Point2 start, Point2 end) {
+    public Line2(Point2 start, Point2 end) {
         this.start = start;
         this.end = end;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Line2 line2 = (Line2) o;
+        return Objects.equals(start, line2.start) &&
+                Objects.equals(end, line2.end);
+    }
+
+    @Override
+    public int hashCode() {
+//        return Objects.hash(start, end);
+
+        int result = start.hashCode();
+        result = 31 * result * end.hashCode();
+        return result;
     }
 
     @Override
