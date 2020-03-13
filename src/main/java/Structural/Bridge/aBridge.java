@@ -1,5 +1,10 @@
 package Structural.Bridge;
 
+// summary:
+// decouple abstraction from implementation
+// both can exist as heirarchies
+// a stronger form of encapsulation
+
 // connecting components together through abstractions
 // it prevents a 'cartesian product' complexity explosion
 // eg: Base class ThreadScheduler
