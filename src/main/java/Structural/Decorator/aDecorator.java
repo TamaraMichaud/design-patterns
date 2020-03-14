@@ -9,6 +9,11 @@ package Structural.Decorator;
 
 // decorator pattern: facilitates the addition of behaviours into individual objects without inheriting from them
 
+// by using a common interface you can make your decorator behave as the underlying object; that object being a
+// private member of the decorator
+
+// but note that we have some issues here. for example in c, greenClearCircle is not really a circle, we cannot use "resize()"...
+
 
 public class aDecorator {
 }
