@@ -11,5 +11,14 @@ package Structural.Proxy;
 //      that resource may be remote, expensive to construct, or may require logging
 //      or some other added functionality
 
+// proxy vs decorator
+// proxy tries to provide an identical interface,
+// while decorator tries to enhance that interface.
+
+// decorator typically aggregates / references the object it's decorating
+// proxy does not
+
+
+
 public class aProxy {
 }
