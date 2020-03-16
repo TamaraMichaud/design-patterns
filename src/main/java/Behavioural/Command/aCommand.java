@@ -8,6 +8,11 @@ package Behavioural.Command;
 // command pattern is an object which represents an instruction to perform a particular action
 // contains all the information required so that the action can be taken
 
+// summary: encapsulate all the details of a certain operation in a separate object -> so you can serialize it!
+//    then you just define the instruction that applies the command
+//    (and optionally define undo instructions, composite commands (macros) )
+
+
 // e.g. bank account modification
 
 import java.util.List;
@@ -36,12 +41,12 @@ public class aCommand {
     }
 }
 
-interface Command {
+interface Commandx {
     void call();
     void undo();
 }
 
-class BankAccountCommand implements Command {
+class BankAccountCommand implements Commandx {
 
     private BankAccount account;
     private boolean succeeded; // << new: so undo() will work.  HAD TO CHANGE THE BANKACCOUNT CLASS THOUGH!
