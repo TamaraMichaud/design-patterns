@@ -10,8 +10,6 @@ package Behavioural.Command;
 
 // e.g. bank account modification
 
-import javax.swing.*;
-import java.util.Collections;
 import java.util.List;
 
 public class aCommand {
@@ -46,6 +44,8 @@ interface Command {
 class BankAccountCommand implements Command {
 
     private BankAccount account;
+    private boolean succeeded; // << new: so undo() will work.  HAD TO CHANGE THE BANKACCOUNT CLASS THOUGH!
+
     public enum Action {
         DEPOSIT, WITHDRAW
     }
@@ -66,7 +66,7 @@ class BankAccountCommand implements Command {
                 account.deposit(amount);
                 break;
             case WITHDRAW:
-                account.withdraw(amount);
+                succeeded = account.withdraw(amount);
                 break;
         }
     }
@@ -79,6 +79,7 @@ class BankAccountCommand implements Command {
         switch(action){
 
             case WITHDRAW:
+                if(!succeeded) break;
                 account.deposit(amount);
                 break;
             case DEPOSIT:
@@ -100,13 +101,15 @@ class BankAccount {
         System.out.println("Balance is now " + balance);
     }
 
-    public void withdraw(int amount) {
+    public boolean withdraw(int amount) {
         if(balance - amount >= overdraftLimit) {
             balance -= amount;
             System.out.println("Withdrew " + amount);
             System.out.println("Balance is now " + balance);
+            return true;
         } else {
             System.out.println(String.format("Woops, withdrawing %d would take you overdrawn", amount));
+            return false;
         }
     }
 
