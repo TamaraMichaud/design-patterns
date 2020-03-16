@@ -1,4 +1,4 @@
-package Structural.ChainOfResponsibility;
+package Behavioural.ChainOfResponsibility;
 
 // a sequence of handlers processing an event one after the other
 // usually chaings go uphill; i.e. in a company, employee messes up; who's fault; he's corrupt? his boss? CEO is dodgy?

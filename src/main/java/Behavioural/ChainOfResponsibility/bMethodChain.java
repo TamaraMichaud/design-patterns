@@ -1,4 +1,4 @@
-package Structural.ChainOfResponsibility;
+package Behavioural.ChainOfResponsibility;
 
 // most popular pattern for chainOfResponsibility
 

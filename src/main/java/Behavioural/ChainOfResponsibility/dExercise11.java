@@ -1,4 +1,4 @@
-package Structural.ChainOfResponsibility;
+package Behavioural.ChainOfResponsibility;
 
 import java.util.ArrayList;
 import java.util.List;
