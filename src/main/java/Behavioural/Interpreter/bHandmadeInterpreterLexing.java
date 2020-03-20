@@ -15,7 +15,7 @@ public class bHandmadeInterpreterLexing {
         System.out.println(tokens.stream().map(t -> t.toString()).collect(Collectors.joining("\t")));
     }
 
-    static List<Token> lex(String inputText){
+   public static List<Token> lex(String inputText){
 
         ArrayList<Token> list = new ArrayList<>();
         for(int i = 0; i < inputText.length(); i++){
